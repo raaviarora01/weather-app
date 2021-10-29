@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App | Home</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+  <header class="weather-title">
+    <h1>Weather App</h1>
+    <p>View the current weather for your city</p>
+  </header>
+  <div class="container">
+    <div class="cloud-icon"><i class="far fa-cloud fa-5x"></i></div>
+    <form action="/" method="POST">
+      <input type="text" name="city" class="ghost-input" placeholder="Enter a city">
+    </form>
+
+    <div class="result">
+      <% if(temp !== null)  {%>
+        <h1 class="temp"><%= (temp -273.15).toPrecision(3) %></h1>
+      <% } %>
+
+      <div class="icon-des">
+        <% if(icon !== null)  {%>
+          <img class="icon" src="http://openweathermap.org/img/w/<%= icon %>.png" alt="">
+        <% } %>
+        <% if(des !== null)  {%>
+          <h3><%= des %></h3>
+        <% } %>
+      </div>
+
+      <% if(city !== null)  {%>
+        <p class="city"><%= city %></p>
+      <% } %>
+      
+    </div>
+  </div>
+</body>
+</html>
